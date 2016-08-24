@@ -7,9 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header' %>
+  <%= render 'layouts/header' %>
   <div class="container">
-    <%= yield %>
+    <% flash.each do |message_type, message| %> <!-- ハッシュ.each do |key, value| --> 
+      <div class="aler alert-<%= message_type %>"><%= message %></div>
+    <% end %>
+    <%= yield %>　<!-- コントローラで処理された内容を埋め込む　-->
   </div>
 </body>
 </html>
