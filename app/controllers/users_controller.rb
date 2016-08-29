@@ -18,10 +18,26 @@ class UsersController < ApplicationController
     end
   end 
   
+  def edit
+   @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    permitted_params = params.require(:user).permit(:name, :email, :profile, :area)
+    if @user.update(permitted_params)
+      flash[:success]="Updated."
+      redirect_to @user #showが呼び出される
+    else
+      flash[:failed]="Update failed."
+      redirect_to @user #showが呼び出される
+    end
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :profile, :area)
   end
 
 end
