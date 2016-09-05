@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user=User.new(user_params)
-    if @user.save
+    if @user.save #これによりuserモデル保存を開始（models/user.rbへ）
       flash[:success]="Welcome to the Sample App!"
       redirect_to @user #showが呼び出される
     else
