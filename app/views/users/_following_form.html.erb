@@ -1,0 +1,7 @@
+<% if current_user != @user %>
+<!-- ログイン中のユーザーでない場合はフォロワー等の表示をしない-->
+<% else %>
+    <div id="following_form">
+        <%= render 'following_hide' %>
+    </div>
+<% end %>

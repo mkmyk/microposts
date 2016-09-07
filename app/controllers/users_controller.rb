@@ -35,6 +35,18 @@ class UsersController < ApplicationController
     end
   end
   
+  def followed_show
+  end
+  
+  def followed_hide
+  end
+  
+  def following_show
+  end
+  
+  def following_hide
+  end
+  
   private
   
   def user_params

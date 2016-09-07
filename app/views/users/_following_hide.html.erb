@@ -1,0 +1,9 @@
+<%= form_for(current_user, 
+              url: following_show_path, 
+              html: { method: :get },
+              remote: true) do |f| %>
+  
+  <div><%= hidden_field_tag :following_show, true %></div>
+  <%= f.submit "Who I Follow", class: "btn btn-primary" %>
+
+<% end %>

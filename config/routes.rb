@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   resources :users
   resources :microposts
   resources :relationships, only: [:create, :destroy]
+  
+  get 'followed_show', to: 'users#followed_show'
+  get 'followed_hide', to: 'users#followed_hide'
+  get 'following_show', to: 'users#following_show'
+  get 'following_hide', to: 'users#following_hide'
+  
    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

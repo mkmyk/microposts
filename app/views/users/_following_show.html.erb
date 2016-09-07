@@ -1,0 +1,17 @@
+Following (<%= current_user.following_users.count %>) user(s)
+
+<ul>
+    <% current_user.following_users. each do | follow | %>
+  <li><%= follow.name %>（<%= follow.id %>）</li >
+<% end %>
+    </ul>
+    
+<%= form_for(current_user, 
+              url: following_hide_path, 
+              html: { method: :get },
+              remote: true) do |f| %>
+  
+  <div><%= hidden_field_tag :following_show, false %></div>
+  <%= f.submit "Hide", class: "btn" %>
+
+<% end %>
