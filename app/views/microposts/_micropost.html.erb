@@ -8,7 +8,14 @@
   <% if current_user == micropost.user %>
     <%= link_to "delete", micropost, method: :delete,
                                      data: { confirm: "You sure?" } %>
-  <% end %>
+  <% else %>
+    <!-- リツイート -->
+    <%= form_for(@micropost) do |f| %>
+      <% @micropost.content = micropost.content %>
+      <div><%= hidden_field_tag 'micropost[content]', @micropost.content %></div>
+      <%= f.submit "retweet", class: "btn btn-default btn-xs" %>
+    <% end %>
+  <% end %>    
     
   </span>
 </li>
